@@ -1,0 +1,30 @@
+# .bashrc
+
+# Source global definitions
+if [ -f /usr/socs/Profile ]; then
+        . /usr/socs/Profile
+fi
+
+# User specific aliases and functions
+
+#Displaying the hostname
+hostnam=`hostname`
+echo "Welcome to "$hostnam"!"
+
+#Calculating and displaying the number of sessions in the host
+#nusers=`who | awk '{ print $1 }' | sort | uniq | wc -l `
+me=`whoami`
+nsessions=`who -u | grep ^"${me}" | wc -l`
+echo "You have "$nsessions" login sessions to this host."
+
+#Aliasing comp206
+alias comp206='cd ~/Projects/COMP206'
+
+#Execution of fortune command
+fortune
+
+#A quote of my own liking
+echo "Good things come to those who do not procrastinate..."
+
+#Setting the prompt to include username, host name, current directory and time - dynamic
+PS1="byildi@teach-vw4[\t]:\w$ "
